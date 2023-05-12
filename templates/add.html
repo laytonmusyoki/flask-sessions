@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <section>
+        <div class="navbar">
+            <div class="logo">
+                <a href="{{url_for('dashboard')}}">LOGO</a>
+            </div>
+            <div class="links">
+                <li><a href="{{url_for('add')}}">Add</a></li>
+                <li><a href="{{url_for('show')}}">Show</a></li>
+            </div>
+            <nav>
+                <ul>
+                    <li><p>{{ username}}</p></a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <div class="input">
+        {% with messages=get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+    
+        <div class="error">{{msg}}</div>
+    
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="" method="POST">
+            <input type="text" name="quote" placeholder="add quote">
+            <input type="submit" class="btn" value="Add">
+        </form>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

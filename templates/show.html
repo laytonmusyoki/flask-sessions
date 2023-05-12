@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <section>
+        <div class="navbar">
+            <div class="logo">
+                <a href="{{url_for('dashboard')}}">LOGO</a>
+            </div>
+            <div class="links">
+                <li><a href="{{url_for('add')}}">Add</a></li>
+                <li><a href="{{url_for('show')}}">Show</a></li>
+            </div>
+            <nav>
+                <ul>
+                    <li><p>{{ username}}</p></a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <div class="show">
+        <table>
+            <tr>
+                <th>qoute</th>
+                <th>Date added</th>
+            </tr>
+            {% for data in data %}
+            <tr>
+                
+                <td>{{data[2]}}</td>
+                <td>{{data[3]}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

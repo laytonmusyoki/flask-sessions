@@ -1,0 +1,30 @@
+{% extends 'home.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+
+<div class="box">
+    <h1>Sign Up</h1>
+
+
+    {% with messages=get_flashed_messages() %}
+    {% if messages %}
+    {% for msg in messages %}
+
+    <div class="error">{{msg}}</div>
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form action="" method="POST">
+        <input type="text" name="name" value="{{name}}" placeholder="Enter name" required>
+        <input type="text" name="uname" value="{{username}}" placeholder="Enter username" required>
+        <input type="email" name="email" value="{{email}}" placeholder="Enter email" required>
+        <input type="password" name="password" value="{{password}}" placeholder="Enter password" required>
+        <input type="submit" value="Sign Up" class="submit">
+    </form>
+</div>
+
+{% endblock %}
